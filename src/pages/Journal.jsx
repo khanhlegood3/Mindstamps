@@ -643,19 +643,19 @@ const Journal = () => {
     return (
       <div className="h-full flex flex-col">
         {/* Journal Header */}
-        <div className="paper-texture border-b border-opacity-20 px-8 py-4 flex justify-between items-center flex-shrink-0" style={{ borderColor: 'var(--warm-brown)' }}>
+        <div className="paper-texture border-b border-opacity-20 px-4 sm:px-8 py-4 flex justify-between items-center flex-shrink-0 gap-2" style={{ borderColor: 'var(--warm-brown)' }}>
           <div>
-            <h1 className="text-2xl font-journal font-semibold" style={{ color: 'var(--deep-brown)' }}>
+            <h1 className="text-xl sm:text-2xl font-journal font-semibold" style={{ color: 'var(--deep-brown)' }}>
               Your journal
             </h1>
-            <p className="text-sm" style={{ color: 'var(--warm-brown)' }}>
+            <p className="text-xs sm:text-sm" style={{ color: 'var(--warm-brown)' }}>
               Ready for your first story
             </p>
           </div>
           
           <button
             onClick={() => setView('create')}
-            className="btn-warm px-6 py-2 rounded-full font-medium"
+            className="btn-warm px-4 sm:px-6 py-2 rounded-full font-medium text-sm sm:text-base whitespace-nowrap"
           >
             Write something
           </button>
@@ -664,26 +664,26 @@ const Journal = () => {
         {/* Empty Journal Pages */}
         <div className="side-by-side spiral-holes">
           {/* Left page - Empty journal */}
-          <div className="paper-texture flex flex-col justify-center items-center p-12 border-r border-opacity-20" style={{ borderColor: 'var(--warm-brown)' }}>
+          <div className="paper-texture flex flex-col justify-center items-center p-6 sm:p-8 md:p-12 border-r border-opacity-20" style={{ borderColor: 'var(--warm-brown)' }}>
             <div className="text-center">
-              <h2 className="text-3xl font-journal font-semibold mb-4" style={{ color: 'var(--deep-brown)' }}>
+              <h2 className="text-2xl sm:text-3xl font-journal font-semibold mb-4" style={{ color: 'var(--deep-brown)' }}>
                 These pages are waiting
               </h2>
-              <p className="text-lg leading-relaxed mb-8" style={{ color: 'var(--warm-brown)' }}>
+              <p className="text-base sm:text-lg leading-relaxed mb-8" style={{ color: 'var(--warm-brown)' }}>
                 Every memory you write down becomes part of your story. Start with something simple - a place you went, a moment that mattered.
               </p>
             </div>
           </div>
 
           {/* Right page - Create invitation */}
-          <div className="paper-texture flex flex-col justify-center items-center p-12">
+          <div className="paper-texture flex flex-col justify-center items-center p-6 sm:p-8 md:p-12">
             <div className="text-center">
-              <h3 className="text-2xl font-journal font-semibold mb-6" style={{ color: 'var(--deep-brown)' }}>
+              <h3 className="text-xl sm:text-2xl font-journal font-semibold mb-6" style={{ color: 'var(--deep-brown)' }}>
                 What's your first memory?
               </h3>
               <button
                 onClick={() => setView('create')}
-                className="btn-warm px-8 py-4 rounded-full font-medium text-lg transition-all duration-300"
+                className="btn-warm px-6 sm:px-8 py-3 sm:py-4 rounded-full font-medium text-base sm:text-lg transition-all duration-300"
               >
                 Start writing
               </button>

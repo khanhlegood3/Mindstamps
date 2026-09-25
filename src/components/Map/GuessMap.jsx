@@ -73,11 +73,11 @@ const GuessMap = ({
   }, [showResult, guessPosition, actualPosition]);
 
   return (
-    <div className="w-full rounded-lg overflow-hidden border border-gray-300" style={{ height: '400px' }}>
+    <div className="w-full h-full rounded-lg overflow-hidden border border-gray-300">
       <MapContainer
         center={[20, 0]} // Center on world view
         zoom={2}
-        style={{ height: '400px', width: '100%' }}
+        style={{ height: '100%', width: '100%' }}
         ref={mapRef}
         whenReady={() => {
           setTimeout(() => {
