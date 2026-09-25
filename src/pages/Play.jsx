@@ -301,12 +301,13 @@ const Play = () => {
       </div>
 
       {currentMemory ? (
+        <>
         <div className="side-by-side relative">
           {/* Left Side - Memory Display */}
           <div className="paper-texture p-4 sm:p-6 border-r border-opacity-20 flex flex-col h-full" style={{ borderColor: 'var(--warm-brown)' }}>
             <div className="w-full md:w-4/5 mx-auto h-full flex flex-col">
-              {/* Scrollable Content Area - Full height with bottom padding for floating button */}
-              <div className="flex-1 overflow-y-auto" style={{ paddingBottom: '120px' }}>
+              {/* Scrollable Content Area */}
+              <div className="flex-1 overflow-y-auto pb-4">
                 <h2 className="text-xl font-journal font-semibold mb-4" style={{ color: 'var(--deep-brown)' }}>
                   {currentMemory.title}
                 </h2>
@@ -323,7 +324,7 @@ const Play = () => {
                 )}
 
                 <div className="paper-texture cozy-shadow rounded-lg p-4 mb-4">
-                  <div className="max-h-32 overflow-y-auto">
+                  <div className="story-scroll">
                     <p className="leading-relaxed text-sm" style={{ color: 'var(--ink-black)' }}>
                       {currentMemory.story}
                     </p>
@@ -361,59 +362,12 @@ const Play = () => {
                 {gameState === 'playing' && !userGuess && (
                   <div className="paper-texture cozy-shadow rounded-lg p-3 text-center">
                     <div className="text-sm" style={{ color: 'var(--warm-brown)' }}>
-                      Where do you think this happened? Click somewhere on the map
+                      Where do you think this happened? Tap or click somewhere on the map
                     </div>
                   </div>
                 )}
               </div>
             </div>
-
-            {/* Floating Action Button - Fixed to Left Side Bottom */}
-            {(gameState === 'playing' && userGuess) || gameState === 'result' ? (
-              <div
-                className="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 w-[calc(100%-2rem)] sm:w-[calc(100%-3rem)] md:w-[calc(40%-3rem)]"
-                style={{
-                  zIndex: 30,
-                  pointerEvents: 'none'
-                }}
-              >
-                <div
-                  className="w-full md:w-4/5 mx-auto p-4 rounded-2xl"
-                  style={{
-                    background: 'linear-gradient(to top, var(--paper-white) 90%, rgba(250, 247, 242, 0.95))',
-                    pointerEvents: 'auto',
-                    backdropFilter: 'blur(8px)',
-                    boxShadow: '0 -8px 32px rgba(0,0,0,0.1)'
-                  }}
-                >
-                  {/* Submit button when playing */}
-                  {gameState === 'playing' && userGuess && (
-                    <button
-                      onClick={submitGuess}
-                      className="btn-sage w-full py-4 rounded-full font-medium text-lg shadow-xl border-2 border-white"
-                      style={{
-                        boxShadow: '0 8px 32px rgba(0,0,0,0.2), 0 4px 16px rgba(156, 175, 136, 0.4)'
-                      }}
-                    >
-                      That's my guess
-                    </button>
-                  )}
-
-                  {/* Next Memory button when showing results */}
-                  {gameState === 'result' && (
-                    <button
-                      onClick={nextMemory}
-                      className="btn-warm w-full py-4 rounded-full font-medium text-lg shadow-xl border-2 border-white"
-                      style={{
-                        boxShadow: '0 8px 32px rgba(0,0,0,0.2), 0 4px 16px rgba(212, 165, 116, 0.4)'
-                      }}
-                    >
-                      {currentIndex + 1 >= memories.length ? 'That was fun' : 'Next one'}
-                    </button>
-                  )}
-                </div>
-              </div>
-            ) : null}
           </div>
 
           {/* Right Side - Pure Map Interface */}
@@ -427,7 +381,7 @@ const Play = () => {
 
             {/* Map Container */}
             <div className="p-3 sm:p-4">
-              <div className="w-full h-[260px] sm:h-[320px] md:h-[400px]">
+              <div className="map-box">
                 <GuessMap
                   onGuess={handleMapGuess}
                   guessPosition={userGuess}
@@ -439,6 +393,36 @@ const Play = () => {
             </div>
           </div>
         </div>
+
+        {/* Action bar: sticky at the bottom, full width on every screen size.
+            Lives outside the two-column grid so it never depends on the
+            column split (which is what broke it when the layout stacked). */}
+        {((gameState === 'playing' && userGuess) || gameState === 'result') && (
+          <div className="game-action-bar paper-texture flex-shrink-0 px-4 pt-3" style={{ borderColor: 'var(--warm-brown)' }}>
+            <div className="w-full max-w-sm mx-auto">
+              {/* Submit button when playing */}
+              {gameState === 'playing' && userGuess && (
+                <button
+                  onClick={submitGuess}
+                  className="btn-sage w-full py-4 rounded-full font-medium text-lg"
+                >
+                  That's my guess
+                </button>
+              )}
+
+              {/* Next Memory button when showing results */}
+              {gameState === 'result' && (
+                <button
+                  onClick={nextMemory}
+                  className="btn-warm w-full py-4 rounded-full font-medium text-lg"
+                >
+                  {currentIndex + 1 >= memories.length ? 'That was fun' : 'Next one'}
+                </button>
+              )}
+            </div>
+          </div>
+        )}
+        </>
       ) : (
         <div className="flex-1 flex items-center justify-center">
           <div className="paper-texture cozy-shadow rounded-2xl p-8 text-center">

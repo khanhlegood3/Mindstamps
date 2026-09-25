@@ -497,7 +497,7 @@ const CreateMemory = ({ onBack = null, onSuccess = null }) => {
             <h3 className="text-lg font-journal font-semibold mb-3" style={{ color: 'var(--deep-brown)' }}>
               Where did this happen?
             </h3>
-            <div className="h-full max-h-80">
+            <div>
               <LocationPicker 
                 onLocationSelect={handleLocationSelect}
                 initialLocation={location.lat ? location : null}

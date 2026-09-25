@@ -28,7 +28,7 @@ const Header = () => {
   };
 
   return (
-    <header className="paper-texture border-b-2 border-opacity-20 relative" style={{ borderColor: 'var(--warm-brown)' }}>
+    <header className="app-header paper-texture border-b-2 border-opacity-20 relative" style={{ borderColor: 'var(--warm-brown)' }}>
       <div className="px-4 sm:px-6 py-3 sm:py-4 flex justify-between items-center">
         <div className="flex items-center space-x-2 sm:space-x-3 min-w-0">
           <div className="w-8 h-8 sm:w-10 sm:h-10 flex-shrink-0 rounded-full bg-gradient-to-br from-yellow-200 to-orange-300 flex items-center justify-center text-lg sm:text-xl">
