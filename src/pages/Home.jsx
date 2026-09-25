@@ -25,27 +25,27 @@ const Home = () => {
   return (
     <div className="side-by-side h-full">
       {/* Left Side - Welcome & Journal */}
-      <div className="flex flex-col justify-center items-center p-12 relative overflow-hidden">
+      <div className="flex flex-col justify-center items-center p-6 sm:p-8 md:p-10 lg:p-12 relative overflow-hidden">
         <div className="max-w-lg text-center z-10">
-          <div className="mb-8">
-            <h1 className="text-5xl font-journal font-semibold mb-4" style={{ color: 'var(--deep-brown)' }}>
+          <div className="mb-6 sm:mb-8">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-journal font-semibold mb-4" style={{ color: 'var(--deep-brown)' }}>
               Hey there
             </h1>
-            <p className="text-lg leading-relaxed" style={{ color: 'var(--warm-brown)' }}>
+            <p className="text-base sm:text-lg leading-relaxed" style={{ color: 'var(--warm-brown)' }}>
               This is your space for keeping memories. Write down the moments that matter, the places you've been, and the stories you want to remember.
             </p>
           </div>
 
-          <div className="paper-texture cozy-shadow rounded-2xl p-8 mb-8">
-            <h2 className="text-2xl font-journal font-semibold mb-4" style={{ color: 'var(--deep-brown)' }}>
+          <div className="paper-texture cozy-shadow rounded-2xl p-6 sm:p-8 mb-6 sm:mb-8">
+            <h2 className="text-xl sm:text-2xl font-journal font-semibold mb-4" style={{ color: 'var(--deep-brown)' }}>
               Your journal
             </h2>
-            <p className="text-base mb-6 leading-relaxed" style={{ color: 'var(--warm-brown)' }}>
+            <p className="text-sm sm:text-base mb-6 leading-relaxed" style={{ color: 'var(--warm-brown)' }}>
               All your memories live here. You can add new ones, flip through old ones, or just browse around and see what you've collected.
             </p>
             <a
               href="#journal"
-              className="btn-warm px-8 py-3 rounded-full font-medium text-lg inline-block transition-all duration-300"
+              className="btn-warm px-6 sm:px-8 py-3 rounded-full font-medium text-base sm:text-lg inline-block transition-all duration-300"
             >
               Open it up
             </a>
@@ -54,24 +54,24 @@ const Home = () => {
       </div>
 
       {/* Right Side - Play & Adventure */}
-      <div className="flex flex-col justify-center items-center p-12 relative overflow-hidden" style={{ background: 'linear-gradient(135deg, var(--soft-beige) 0%, var(--warm-cream) 100%)' }}>
+      <div className="flex flex-col justify-center items-center p-6 sm:p-8 md:p-10 lg:p-12 relative overflow-hidden" style={{ background: 'linear-gradient(135deg, var(--soft-beige) 0%, var(--warm-cream) 100%)' }}>
         <div className="max-w-lg text-center z-10">
-          <div className="paper-texture cozy-shadow rounded-2xl p-8">
-            <h2 className="text-2xl font-journal font-semibold mb-4" style={{ color: 'var(--deep-brown)' }}>
+          <div className="paper-texture cozy-shadow rounded-2xl p-6 sm:p-8">
+            <h2 className="text-xl sm:text-2xl font-journal font-semibold mb-4" style={{ color: 'var(--deep-brown)' }}>
               Want to play?
             </h2>
-            <p className="text-base mb-6 leading-relaxed" style={{ color: 'var(--warm-brown)' }}>
+            <p className="text-sm sm:text-base mb-6 leading-relaxed" style={{ color: 'var(--warm-brown)' }}>
               I made this little game where you try to guess where your memories happened. It's pretty fun once you have a few stories written down.
             </p>
             <a
               href="#play"
-              className="btn-sage px-8 py-3 rounded-full font-medium text-lg inline-block transition-all duration-300"
+              className="btn-sage px-6 sm:px-8 py-3 rounded-full font-medium text-base sm:text-lg inline-block transition-all duration-300"
             >
               Let's try it
             </a>
           </div>
 
-          <div className="mt-8 text-center">
+          <div className="mt-6 sm:mt-8 text-center">
             <p className="text-sm italic" style={{ color: 'var(--warm-brown)' }}>
               The best stories are the ones we almost forgot
             </p>

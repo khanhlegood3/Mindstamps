@@ -362,7 +362,7 @@ const CreateMemory = ({ onBack = null, onSuccess = null }) => {
 
       <div className="side-by-side">
         {/* Left Side - Form */}
-        <div className="paper-texture p-8 overflow-y-auto border-r border-opacity-20" style={{ borderColor: 'var(--warm-brown)' }}>
+        <div className="paper-texture p-4 sm:p-6 md:p-8 overflow-y-auto border-r border-opacity-20" style={{ borderColor: 'var(--warm-brown)' }}>
           <form onSubmit={handleSubmit} className="space-y-6 max-w-md mx-auto">
             {/* Title */}
             <div className={`${isVoiceMode && currentVoiceField === 'title' ? 'ring-2 ring-purple-300 rounded-lg p-2' : ''}`}>

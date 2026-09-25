@@ -316,6 +316,23 @@ body {
   }
 }
 
+/* Tablet responsiveness (portrait iPad and similar) — keep the two-page book
+   layout but narrow the spine and tighten spacing so content isn't cramped */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .side-by-side::before,
+  .side-by-side::after {
+    width: 14px;
+  }
+
+  .side-by-side .spiral-holes::before {
+    width: 6px;
+  }
+
+  .journal-page {
+    padding: 1.5rem !important;
+  }
+}
+
 /* Touch-friendly interactions */
 @media (hover: none) and (pointer: coarse) {
   .btn-warm, .btn-sage {

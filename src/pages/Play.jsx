@@ -185,18 +185,18 @@ const Play = () => {
   if (gameState === 'no-memories') {
     return (
       <div className="side-by-side h-full">
-        <div className="flex flex-col justify-center items-center p-12 relative overflow-hidden">
+        <div className="flex flex-col justify-center items-center p-6 sm:p-8 md:p-12 relative overflow-hidden">
           <div className="text-center z-10">
-            <h1 className="text-3xl font-journal font-semibold mb-4" style={{ color: 'var(--deep-brown)' }}>
+            <h1 className="text-2xl sm:text-3xl font-journal font-semibold mb-4" style={{ color: 'var(--deep-brown)' }}>
               Your journal is empty
             </h1>
-            <p className="text-lg mb-8" style={{ color: 'var(--warm-brown)' }}>
+            <p className="text-base sm:text-lg mb-8" style={{ color: 'var(--warm-brown)' }}>
               Let's fill these pages with some memories first. Then we can play this little guessing game I made for you.
             </p>
           </div>
         </div>
 
-        <div className="flex flex-col justify-center items-center p-12" style={{ background: 'linear-gradient(135deg, var(--soft-beige) 0%, var(--warm-cream) 100%)' }}>
+        <div className="flex flex-col justify-center items-center p-6 sm:p-8 md:p-12" style={{ background: 'linear-gradient(135deg, var(--soft-beige) 0%, var(--warm-cream) 100%)' }}>
           <a
             href="#journal"
             className="btn-warm px-8 py-4 rounded-full font-medium text-lg"
@@ -211,19 +211,19 @@ const Play = () => {
   if (gameState === 'finished') {
     return (
       <div className="side-by-side h-full">
-        <div className="flex flex-col justify-center items-center p-12 relative overflow-hidden">
+        <div className="flex flex-col justify-center items-center p-6 sm:p-8 md:p-12 relative overflow-hidden">
           <div className="text-center z-10">
-            <h1 className="text-4xl font-journal font-semibold mb-4" style={{ color: 'var(--deep-brown)' }}>
+            <h1 className="text-3xl sm:text-4xl font-journal font-semibold mb-4" style={{ color: 'var(--deep-brown)' }}>
               Well done!
             </h1>
-            <p className="text-lg mb-6" style={{ color: 'var(--warm-brown)' }}>
+            <p className="text-base sm:text-lg mb-6" style={{ color: 'var(--warm-brown)' }}>
               You made it through all your memories. That was fun, wasn't it?
             </p>
 
-            <div className="paper-texture cozy-shadow rounded-2xl p-8 mb-8">
-              <div className="text-6xl font-bold mb-4" style={{ color: 'var(--dusty-rose)' }}>{score}</div>
-              <div className="text-xl mb-4" style={{ color: 'var(--warm-brown)' }}>points total</div>
-              <div className="text-lg" style={{ color: 'var(--deep-brown)' }}>
+            <div className="paper-texture cozy-shadow rounded-2xl p-6 sm:p-8 mb-8">
+              <div className="text-5xl sm:text-6xl font-bold mb-4" style={{ color: 'var(--dusty-rose)' }}>{score}</div>
+              <div className="text-lg sm:text-xl mb-4" style={{ color: 'var(--warm-brown)' }}>points total</div>
+              <div className="text-base sm:text-lg" style={{ color: 'var(--deep-brown)' }}>
                 You went through {memories.length} memories and averaged about{' '}
                 {Math.round(score / memories.length)} points each. Not bad at all.
               </div>
@@ -231,7 +231,7 @@ const Play = () => {
           </div>
         </div>
 
-        <div className="flex flex-col justify-center items-center p-12 pb-16" style={{ background: 'linear-gradient(135deg, var(--soft-beige) 0%, var(--warm-cream) 100%)' }}>
+        <div className="flex flex-col justify-center items-center p-6 sm:p-8 md:p-12 pb-16" style={{ background: 'linear-gradient(135deg, var(--soft-beige) 0%, var(--warm-cream) 100%)' }}>
           <div className="w-full max-w-sm space-y-4">
             <button
               onClick={restartGame}
@@ -289,12 +289,12 @@ const Play = () => {
   return (
     <div className="h-full flex flex-col">
       {/* Header */}
-      <div className="paper-texture border-b border-opacity-20 px-8 py-4 flex justify-between items-center flex-shrink-0" style={{ borderColor: 'var(--warm-brown)' }}>
-        <h1 className="text-2xl font-journal font-semibold" style={{ color: 'var(--deep-brown)' }}>
+      <div className="paper-texture border-b border-opacity-20 px-4 sm:px-6 md:px-8 py-3 sm:py-4 flex justify-between items-center flex-shrink-0 gap-2" style={{ borderColor: 'var(--warm-brown)' }}>
+        <h1 className="text-lg sm:text-xl md:text-2xl font-journal font-semibold" style={{ color: 'var(--deep-brown)' }}>
           Let's play a little game
         </h1>
-        <div className="text-right">
-          <div className="text-sm font-medium" style={{ color: 'var(--warm-brown)' }}>
+        <div className="text-right flex-shrink-0">
+          <div className="text-xs sm:text-sm font-medium whitespace-nowrap" style={{ color: 'var(--warm-brown)' }}>
             {score} points • {currentIndex + 1} of {memories.length}
           </div>
         </div>
@@ -303,8 +303,8 @@ const Play = () => {
       {currentMemory ? (
         <div className="side-by-side relative">
           {/* Left Side - Memory Display */}
-          <div className="paper-texture p-6 border-r border-opacity-20 flex flex-col h-full" style={{ borderColor: 'var(--warm-brown)' }}>
-            <div className="w-4/5 mx-auto h-full flex flex-col">
+          <div className="paper-texture p-4 sm:p-6 border-r border-opacity-20 flex flex-col h-full" style={{ borderColor: 'var(--warm-brown)' }}>
+            <div className="w-full md:w-4/5 mx-auto h-full flex flex-col">
               {/* Scrollable Content Area - Full height with bottom padding for floating button */}
               <div className="flex-1 overflow-y-auto" style={{ paddingBottom: '120px' }}>
                 <h2 className="text-xl font-journal font-semibold mb-4" style={{ color: 'var(--deep-brown)' }}>
@@ -371,15 +371,14 @@ const Play = () => {
             {/* Floating Action Button - Fixed to Left Side Bottom */}
             {(gameState === 'playing' && userGuess) || gameState === 'result' ? (
               <div
-                className="absolute bottom-6 left-6"
+                className="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 w-[calc(100%-2rem)] sm:w-[calc(100%-3rem)] md:w-[calc(40%-3rem)]"
                 style={{
-                  width: 'calc(40% - 3rem)',
                   zIndex: 30,
                   pointerEvents: 'none'
                 }}
               >
                 <div
-                  className="w-4/5 mx-auto p-4 rounded-2xl"
+                  className="w-full md:w-4/5 mx-auto p-4 rounded-2xl"
                   style={{
                     background: 'linear-gradient(to top, var(--paper-white) 90%, rgba(250, 247, 242, 0.95))',
                     pointerEvents: 'auto',
@@ -426,9 +425,9 @@ const Play = () => {
               </h3>
             </div>
 
-            {/* Map Container - Fixed Height */}
-            <div className="p-4">
-              <div className="w-full" style={{ height: '400px' }}>
+            {/* Map Container */}
+            <div className="p-3 sm:p-4">
+              <div className="w-full h-[260px] sm:h-[320px] md:h-[400px]">
                 <GuessMap
                   onGuess={handleMapGuess}
                   guessPosition={userGuess}
