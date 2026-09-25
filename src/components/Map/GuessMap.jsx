@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
-import { MapContainer, TileLayer, Marker, useMapEvents, Polyline } from 'react-leaflet';
+import { MapContainer, TileLayer, Marker, useMap, useMapEvents, Polyline } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
 
@@ -29,6 +29,21 @@ const actualIcon = new L.Icon({
   popupAnchor: [1, -34],
   shadowSize: [41, 41]
 });
+
+// Keeps Leaflet in sync when its container changes size (device rotation,
+// iPad split view, window resize) — without this the tiles can render into
+// the old size and show as blank/gray until the map is interacted with.
+const MapResizeHandler = () => {
+  const map = useMap();
+  useEffect(() => {
+    const container = map.getContainer();
+    if (typeof ResizeObserver === 'undefined') return undefined;
+    const observer = new ResizeObserver(() => map.invalidateSize());
+    observer.observe(container);
+    return () => observer.disconnect();
+  }, [map]);
+  return null;
+};
 
 const GuessMarker = ({ onGuess, disabled }) => {
   useMapEvents({
@@ -94,6 +109,7 @@ const GuessMap = ({
           subdomains="abcd"
         />
         
+        <MapResizeHandler />
         <GuessMarker onGuess={onGuess} disabled={disabled} />
         
         {/* Show guess marker */}
